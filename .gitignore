@@ -1,0 +1,15 @@
+# Ignorar toda la metadata y compilación de NetBeans
+/nbproject/
+/build/
+/dist/
+/nbbuild/
+/nbdist/
+/build.xml
+/manifest.mf
+
+# Archivos compilados
+*.class
+
+# Archivos temporales y logs
+*.log
+*.tmp

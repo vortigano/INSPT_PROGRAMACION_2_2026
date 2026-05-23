@@ -25,7 +25,7 @@ public class Empleado {
         setNombre   (nombre);
         setApellido (apellido);
         setSalarioBase  (salarioBase);
-        this.estadoCivil    = estadoCivil;
+        setEstadoCivil  (estadoCivil);
         setHijos    (hijos);
     }
     
@@ -122,6 +122,16 @@ public class Empleado {
         }
         else
             throw new IllegalArgumentException("Salario Base invalido");
+    }
+    
+    private void setEstadoCivil(EstadoCivil estadoCivil)
+    {
+        if(estadoCivil!=null)
+        {
+            this.estadoCivil = estadoCivil;
+        }
+        else
+            throw new IllegalArgumentException("Estado civil no puede ser nulo");
     }
 
     @Override

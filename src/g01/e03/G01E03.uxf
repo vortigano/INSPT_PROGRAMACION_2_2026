@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>40</y>
+      <w>300</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>CuentaBancaria
+--
+-cbu: String
+-saldo: double
+--
++depositar(double): void
++extraer(double): void
++obtenerUltimos3DigitosDeCBU(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>290</y>
+      <w>300</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+TipoDeCuenta
+--
+_+CAJA_DE_AHORRO_
+_+CUENTA_CORRIENTE_
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>170</y>
+      <w>130</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-tipoDeCunenta
+m1=1</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

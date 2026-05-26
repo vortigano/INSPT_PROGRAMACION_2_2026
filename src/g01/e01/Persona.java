@@ -13,7 +13,7 @@ public class Persona {
     
     private static final int EDAD_MAXIMA = 140;
     
-    Persona(String nombre, String apellido, int anioDeNacimiento)
+    public Persona(String nombre, String apellido, int anioDeNacimiento)
     {
         setNombre(nombre);
         setApellido(apellido);

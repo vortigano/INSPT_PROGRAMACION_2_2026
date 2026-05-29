@@ -1,3 +1,11 @@
+/*
+    4) Modelá la clase Fecha, la cual posea como atributos el día, el mes y el año. Luego, implementá
+    métodos que permitan:
+     Obtener la fecha como cadena, en formato "dd/mm/aaaa".
+     Saber si es Navidad.
+     Sumar un mes.
+    Finalmente, instanciá una fecha en el método main y probá todos sus métodos
+*/
 package g01.e04;
 
 /**

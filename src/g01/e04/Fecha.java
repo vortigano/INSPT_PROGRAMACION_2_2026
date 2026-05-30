@@ -29,6 +29,23 @@ public class Fecha {
         };
     }
     
+    public int getDia(){
+        return dia;
+    }
+    
+    public int getMes(){
+        return mes;
+    }
+    
+    public int getAnio(){
+        return anio;
+    }
+
+    @Override
+    public String toString() {
+        return obtenerFecha();
+    }
+    
     public boolean esValida(){
         int diasDelMesMax = getDiasDelMes(mes,anio);
                 

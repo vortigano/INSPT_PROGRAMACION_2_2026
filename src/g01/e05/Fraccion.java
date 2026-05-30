@@ -14,6 +14,11 @@ public class Fraccion {
         setDenominador(denominador);
         normalizarSigno();
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d/%d\n", numerador, denominador);
+    }
     
     private void normalizarSigno()
     {
@@ -36,7 +41,7 @@ public class Fraccion {
     }
 
     public void mostrarFraccion() {
-        System.out.printf("%d/%d\n", numerador, denominador);
+        System.out.printf(toString());
     }
 
     public double obtenerValorDecimal() {

@@ -29,6 +29,30 @@ public class Empleado {
         setHijos    (hijos);
     }
     
+    public String getDni(){
+        return dni;
+    }
+    
+    public String getNombre(){
+        return nombre;
+    }
+    
+    public String getApellido(){
+        return apellido;
+    }
+    
+    public double getSalarioBase(){
+        return salarioBase;
+    }
+    
+    public EstadoCivil getEstadoCivil(){
+        return estadoCivil;
+    }
+    
+    public int getHijos(){
+        return hijos;
+    }
+    
     private boolean esDniValido(String dni)
     {
         return (dni!=null && !dni.isBlank() && dni.length()>7);
@@ -136,7 +160,9 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", salarioBase=" + salarioBase + ", estadoCivil=" + estadoCivil + ", hijos=" + hijos + '}';
+        return "Empleado{" + "dni=" + getDni() + ", nombre=" + getNombre() +
+                ", apellido=" + getApellido() + ", salarioBase=" + getSalarioBase() +
+                ", estadoCivil=" + getEstadoCivil() + ", hijos=" + getHijos() + '}';
     }
     
 }

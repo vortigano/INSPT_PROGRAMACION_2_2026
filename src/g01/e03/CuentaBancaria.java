@@ -19,6 +19,36 @@ public class CuentaBancaria {
         saldo = 0;
     }
     
+    public CuentaBancaria(TipoDeCuenta tipo, String cbu, double saldo)
+    {
+        setTipo(tipo);
+        setCbu(cbu);
+        setSaldo(saldo);
+    }
+    
+    private void setCbu(String cbu){
+        if(cbu==null || cbu.length()!=CBU_LEN)
+        {
+            throw new IllegalArgumentException("CBU ingreso invalido " + cbu);
+        }
+        this.cbu = cbu;
+    }
+    
+    private void setSaldo(double saldo){
+        if(tipo != TipoDeCuenta.CUENTA_CORRIENTE && saldo < 0){
+            throw new IllegalArgumentException("El saldo inicial no puede ser negativo");
+        }
+        this.saldo = saldo;
+    }
+    
+    public String getCbu(){
+        return cbu;
+    }
+    
+    public TipoDeCuenta getTipoDeCuenta(){
+        return tipo;
+    }
+    
     private void setTipo(TipoDeCuenta tipo){
         if(tipo!=null)
             this.tipo = tipo;

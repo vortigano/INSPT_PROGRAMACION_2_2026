@@ -7,6 +7,11 @@
      Extraer dinero de la cuenta (actualizando el saldo). Solo puede quedar
     en saldo negativo si es cuenta corriente.
      Obtener los últimos 3 dígitos del CBU.
+
+    6) Refactoreá las clases de los cuatros ejercicios anteriores con los siguientes cambios:
+     Agregar un constructor que inicialice todos sus atributos por parámetro.
+     Establecer sus atributos como privados y colocar los getters/setters que correspondan.
+     Implementar el método toString() y comprobar su funcionamiento
 */
 package g01.e03;
 

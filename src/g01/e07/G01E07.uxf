@@ -18,7 +18,7 @@
 + setNombre(nombre: String): void
 + setApellido(apellido: String): void
 + setNombreYApellido(nombre: String, apellido: String):void
-+ getNombreYApellido();
++ getNombreYApellido()
 </panel_attributes>
     <additional_attributes/>
   </element>

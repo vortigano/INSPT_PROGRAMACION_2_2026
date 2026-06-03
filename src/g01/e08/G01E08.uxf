@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>280</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Password
+--
+- valor: String
+_- PASSWORD_FUERTE_LEN: int = 8_
+_- LONGITUD_MINIMA: int = 6_
+--
++ Password(valor: String)
++ Password()
++ esFuerte(): boolean
++ nuevoValor(valor: String): boolean
+_+ generarAleatorio(longitud: int): String_</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

@@ -1,57 +1,55 @@
 package g01.e01;
 
-import java.time.Year;
-
 /**
  *
  * @author Alberto Martín Capurro
  */
 public class Persona {
-    private String  nombre;
-    private String  apellido;
-    private int     anioDeNacimiento;
+    private String      nombre;
+    private String      apellido;
+    private Fecha       fechaDeNacimiento;
+    private Domicilio   domicilio;
     
     private static final int EDAD_MAXIMA = 140;
     
-    public Persona(String nombre, String apellido, int anioDeNacimiento)
-    {
+    public Persona(String nombre, String apellido, Fecha fechaDeNacimiento){
         setNombre(nombre);
         setApellido(apellido);
-        setAnioDeNacimiento(anioDeNacimiento);
+        setFechaDeNacimiento(fechaDeNacimiento);
+        domicilio = Domicilio.DOMICILIO_DESCONOCIDO;
     }
     
-    public void setNombre(String nombre)
-    {
-        if(nombre!=null && nombre.length()>=3)
-        {
-            this.nombre = nombre;
+    public Persona(String nombre, String apellido, Fecha fechaDeNacimiento, Domicilio dom){
+        setNombre(nombre);
+        setApellido(apellido);
+        setFechaDeNacimiento(fechaDeNacimiento);
+        domicilio = (dom == null) ? (Domicilio.DOMICILIO_DESCONOCIDO) : (dom);
+    }
+    
+    public void nuevoDomicilio(String calle, int altura, String barrio){
+        domicilio = new Domicilio(calle, altura, barrio);
+    }   
+    
+    public void setNombre(String nombre){
+        if(nombre==null || nombre.length()<3 || nombre.isBlank()){
+            throw new IllegalArgumentException("Nombre invalido: " + nombre);
         }
+        this.nombre = nombre;
     }
     
-    public void setApellido(String apellido)
-    {
-        if(apellido!=null && apellido.length()>=3)
-        {
-            this.apellido = apellido;
+    public void setApellido(String apellido){
+        if(apellido==null || apellido.length()<3 || apellido.isBlank()){
+            throw new IllegalArgumentException("Apellido invalido: " + apellido);
         }
+        this.apellido = apellido;
     }
     
-    private boolean esAnioFuturo(int anio)
-    {
-        return anio > Year.now().getValue();
-    }
-    
-    private boolean esAnioDemasiadoAntiguo(int anio)
-    {
-        return anio < Year.now().getValue() - EDAD_MAXIMA;
-    }
-    
-    public void setAnioDeNacimiento(int anioDeNacimiento) {
-        if(esAnioFuturo(anioDeNacimiento) || esAnioDemasiadoAntiguo(anioDeNacimiento))
+    public void setFechaDeNacimiento(Fecha fechaDeNacimiento) {
+        if(fechaDeNacimiento == null || fechaDeNacimiento.esFutura() || fechaDeNacimiento.esMasAntiguaQue(EDAD_MAXIMA))
         {
-            throw new IllegalArgumentException("Anio de nacimiento invalido: " + anioDeNacimiento);
+            throw new IllegalArgumentException("Anio de nacimiento invalido: " + fechaDeNacimiento);
         }
-        this.anioDeNacimiento = anioDeNacimiento;
+        this.fechaDeNacimiento = fechaDeNacimiento;
     }
     
     public String getNombreCompleto()
@@ -61,7 +59,7 @@ public class Persona {
     
     public int getEdadActual()
     {
-        return Year.now().getValue() - anioDeNacimiento;
+        return (int)fechaDeNacimiento.getAniosTranscurridos();
     }
     
     public boolean esMayorQue(int edad) {
@@ -69,13 +67,13 @@ public class Persona {
     }
 
     
-    void setNombreYApellido(String nuevoNombre, String nuevoApellido) {
+    public void setNombreYApellido(String nuevoNombre, String nuevoApellido) {
         setNombre(nuevoNombre);
         setApellido(nuevoApellido);
     }
-    
+
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", anioDeNacimiento=" + anioDeNacimiento + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", fechaDeNacimiento=" + fechaDeNacimiento + ", domicilio=" + domicilio + '}';
     }
 }

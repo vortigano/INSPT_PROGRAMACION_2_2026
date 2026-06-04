@@ -10,6 +10,7 @@ public class Domicilio {
     private int     altura;
     private String  barrio;
     
+    public static final int SIN_ALTURA = 0;
     public static final Domicilio DOMICILIO_DESCONOCIDO = new Domicilio("Sin calle", 0, "Sin barrio");
         
     public Domicilio(String calle, int altura, String barrio){
@@ -18,7 +19,7 @@ public class Domicilio {
         setBarrio(barrio);
     }
     
-    public void setBarrio(String barrio){
+    private void setBarrio(String barrio){
         if(barrio==null || barrio.isBlank()){
             throw new IllegalArgumentException("Nombre de barrio invalido: " + barrio);
         }
@@ -26,25 +27,26 @@ public class Domicilio {
     }
     
     /*
-        Hay calles que no tienen altura, pero asumimos que todas las calles
-        tienen altura, por lo tanto no puede ser menor que 1
+        Para calles que no tienen altura se usa SIN_ALTURA
+        Las calles que tienen altura deben ser mayor a cero
     */
-    public void setAltura(int altura){
-        if(altura<1){
+    private void setAltura(int altura){
+        if(altura!=SIN_ALTURA && altura<1){
             throw new IllegalArgumentException("Altura debe ser mayor a cero: " + altura);
         }
         this.altura = altura;
     }
     
-    public void setCalle(String calle){
+    private void setCalle(String calle){
         if(calle==null || calle.isBlank()){
             throw new IllegalArgumentException("Nombre de calle invalido: " + calle);
         }
         this.calle  = calle;
     }
-    
+            
     @Override
     public String toString() {
         return "Domicilio{" + "calle=" + calle + ", altura=" + altura + ", barrio=" + barrio + '}';
     }
+    
 }

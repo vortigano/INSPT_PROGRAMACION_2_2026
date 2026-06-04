@@ -8,15 +8,27 @@ public class Persona {
     private String      nombre;
     private String      apellido;
     private Fecha       fechaDeNacimiento;
+    private Domicilio   domicilio;
     
     private static final int EDAD_MAXIMA = 140;
     
-    public Persona(String nombre, String apellido, Fecha fechaDeNacimiento)
-    {
+    public Persona(String nombre, String apellido, Fecha fechaDeNacimiento){
         setNombre(nombre);
         setApellido(apellido);
         setFechaDeNacimiento(fechaDeNacimiento);
+        domicilio = Domicilio.DOMICILIO_DESCONOCIDO;
     }
+    
+    public Persona(String nombre, String apellido, Fecha fechaDeNacimiento, Domicilio dom){
+        setNombre(nombre);
+        setApellido(apellido);
+        setFechaDeNacimiento(fechaDeNacimiento);
+        domicilio = (dom == null) ? (Domicilio.DOMICILIO_DESCONOCIDO) : (dom);
+    }
+    
+    public void nuevoDomicilio(String calle, int altura, String barrio){
+        domicilio = new Domicilio(calle, altura, barrio);
+    }   
     
     public void setNombre(String nombre){
         if(nombre==null || nombre.length()<3 || nombre.isBlank()){
@@ -59,9 +71,9 @@ public class Persona {
         setNombre(nuevoNombre);
         setApellido(nuevoApellido);
     }
-    
+
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", anioDeNacimiento=" + fechaDeNacimiento + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellido=" + apellido + ", fechaDeNacimiento=" + fechaDeNacimiento + ", domicilio=" + domicilio + '}';
     }
 }

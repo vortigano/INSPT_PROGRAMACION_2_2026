@@ -69,7 +69,7 @@ public class Persona {
     }
 
     
-    void setNombreYApellido(String nuevoNombre, String nuevoApellido) {
+    public void setNombreYApellido(String nuevoNombre, String nuevoApellido) {
         setNombre(nuevoNombre);
         setApellido(nuevoApellido);
     }

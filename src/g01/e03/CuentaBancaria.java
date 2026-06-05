@@ -1,5 +1,7 @@
 package g01.e03;
 
+import g01.e01.Fecha;
+import g01.e01.Persona;
 import java.util.Random;
 
 /**
@@ -12,18 +14,38 @@ public class CuentaBancaria {
     private TipoDeCuenta tipo;
     private String  cbu;
     private double  saldo;
+    
+    private Persona titular;
+    private Fecha   fechaDeApertura;
 
-    public CuentaBancaria(TipoDeCuenta tipo){
+    public CuentaBancaria(TipoDeCuenta tipo, Persona titular, Fecha fechaDeApertura){
         setTipo(tipo);
         setCBU();
         saldo = 0;
+        setTitular(titular);
+        setFechaDeApertura(fechaDeApertura);
     }
     
-    public CuentaBancaria(TipoDeCuenta tipo, String cbu, double saldo)
-    {
+    public CuentaBancaria(TipoDeCuenta tipo, String cbu, double saldo, Persona titular, Fecha fechaDeApertura){
         setTipo(tipo);
         setCbu(cbu);
         setSaldo(saldo);
+        setTitular(titular);
+        setFechaDeApertura(fechaDeApertura);
+    }
+    
+    public void setTitular(Persona titular){
+        if(titular==null){
+            throw new IllegalArgumentException("Titular no puede ser nulo");
+        }
+        this.titular = titular;
+    }
+    
+    public void setFechaDeApertura(Fecha fechaDeApertura){
+        if(fechaDeApertura==null){
+            throw new IllegalArgumentException("Fecha de apertura no puede ser nulo");
+        }
+        this.fechaDeApertura = fechaDeApertura;
     }
     
     private void setCbu(String cbu){
@@ -103,9 +125,20 @@ public class CuentaBancaria {
         return this.cbu.substring(CBU_LEN-3);
     }
 
+//    @Override
+//    public String toString() {
+//        return "CuentaBancaria{" + "tipo=" + tipo + ", cbu=" + cbu + ", saldo=" + saldo + '}';
+//    }
+
     @Override
     public String toString() {
-        return "CuentaBancaria{" + "tipo=" + tipo + ", cbu=" + cbu + ", saldo=" + saldo + '}';
+        return "CuentaBancaria{" + 
+                "tipo=" + tipo + 
+                ", cbu=" + cbu + 
+                ", saldo=" + saldo + '\n' +
+                ", titular=" + titular + '\n' +
+                ", fechaDeApertura=" + fechaDeApertura + 
+                '}';
     }
     
 }

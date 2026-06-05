@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>328</y>
+      <w>368</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>CuentaBancaria
+--
+_- CBU_LEN: int = 22_
+- cbu: String
+- saldo: double
+--
++ CuentaBancaria(TipoDeCuenta, Persona, Fecha)
++ CuentaBancaria(TipoDeCuenta, String, double, Persona, Fecha)
++ setTitular(Persona): void
++ setFechaDeApertura(Fecha): void
++ depositar(double): void
++ extraer(double): void
++ obtenerUltimos3DigitosDeCBU(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>536</y>
+      <w>240</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+TipoDeCuenta
+--
+_+CAJA_DE_AHORRO_
+_+CUENTA_CORRIENTE_
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>488</y>
+      <w>104</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+-tipoDeCunenta
+m1=1</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>256</y>
+      <w>464</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- fechaDeNacimiento</panel_attributes>
+    <additional_attributes>550.0;80.0;550.0;50.0;10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>320</y>
+      <w>192</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Fecha
+--
+- date: LocalDate
+--
++ Fecha(int, int, int)
++ esMasAntiguaQue(int): boolean
++ esFutura():boolean
++ getAniosTranscurridos(): long
++ toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>296</x>
+      <y>96</y>
+      <w>384</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Domicilio
+--
+- calle: String
+- altura: int
+- barrio: String
+_+ SIN_ALTURA: int=0_
+_+ DOMICILIO_DESCONOCIDO= Domicilio("Sin calle", 0, "Sin barrio")_
+--
++ Domicilio(String,int,String);
+- setBarrio(String): void
+- setAltura(int): void
+- setCalle(String): void
++ toString(): String
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>256</x>
+      <y>48</y>
+      <w>152</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- domicilio</panel_attributes>
+    <additional_attributes>160.0;60.0;160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>24</x>
+      <y>16</y>
+      <w>240</w>
+      <h>248</h>
+    </coordinates>
+    <panel_attributes>Persona
+--
+- nombre: String
+- apellido: String
+- fechaDeNacimiento: Fecha
+- domicilio: Dimicilio
+_- EDAD_MAXIMA: int = 140_
+--
++ Persona(String,String,Fecha)
++ Persona(String,String,Fecha,Domicilio)
++ nuevoDomicilio(String,int,String): void
++ setNombre(String nombre): void
++ setApellido(String apellido): void
++ setFechaDeNacimiento(Fecha): void
++ getNombreCompleto(): String
++ getEdadActual(): int
++ esMayorQue(int): boolean
++ setNombreYApellido(String, String): void
++ toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>72</x>
+      <y>256</y>
+      <w>56</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+-titular</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>376</y>
+      <w>136</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+-fechaDeApertura</panel_attributes>
+    <additional_attributes>150.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>

@@ -16,15 +16,19 @@ public class Persona {
         setNombre(nombre);
         setApellido(apellido);
         setFechaDeNacimiento(fechaDeNacimiento);
-        domicilio = Domicilio.DOMICILIO_DESCONOCIDO;
+        nuevoDomicilio(Domicilio.DOMICILIO_DESCONOCIDO);
     }
     
     public Persona(String nombre, String apellido, Fecha fechaDeNacimiento, Domicilio dom){
         setNombre(nombre);
         setApellido(apellido);
         setFechaDeNacimiento(fechaDeNacimiento);
-        domicilio = (dom == null) ? (Domicilio.DOMICILIO_DESCONOCIDO) : (dom);
+        nuevoDomicilio(dom);
     }
+    
+    public void nuevoDomicilio(Domicilio domicilio){
+        this.domicilio = (domicilio == null) ? (Domicilio.DOMICILIO_DESCONOCIDO) : (domicilio);
+    }   
     
     public void nuevoDomicilio(String calle, int altura, String barrio){
         domicilio = new Domicilio(calle, altura, barrio);

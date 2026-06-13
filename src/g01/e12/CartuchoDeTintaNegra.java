@@ -20,7 +20,7 @@ public class CartuchoDeTintaNegra {
         return nivel >= nivelSegunCantCaracteres(nChars);
     }
 
-    public float nivelSegunCantCaracteres(int nChars) {
+    public static float nivelSegunCantCaracteres(int nChars) {
         return (float) nChars / CHARS_POR_NIVEL_DE_TINTA;
     }
 

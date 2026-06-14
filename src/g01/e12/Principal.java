@@ -1,3 +1,20 @@
+/*
+    12) Desarrollar la clase ImpresoraMonocromatica. Sus atributos serán si está o no encendida, una bandeja que indique la cantidad de hojas, y, por último, un único cartucho con un nivel de tinta negra. Inicialmente, toda impresora está apagada, con una bandeja sin hojas y con un cartucho lleno (nivel de tinta en 100).
+    La impresora debe ser capaz responder a los siguientes métodos:
+     int nivelSegunCantCaracteres(int) {…} ¿Este método debería ser público o privado?
+      Devuelve cuánta cantidad de tinta debería usarse según la cantidad de caracteres recibida por parámetro.
+     void recargarBandeja(int) {…} ¿Este método debería ser público o privado?
+      Suma a la bandeja una cantidad de hojas. El máximo de la bandeja es de 35 hojas. Se debe verificar no exceder ese valor. Si el parámetro es negativo, la bandeja se deja como está.
+     void imprimir(Documento) {…} ¿Este método debería ser público o privado?
+      Imprime por consola los siguientes campos del documento*, en el siguiente formato:
+
+    Fecha   **Titulo**
+    Cuerpo
+
+    Al hacerlo, se descuenta 1 punto de nivel de tinta por cada 50 caracteres del cuerpo impresos y se resta 1 hoja de la bandeja por cada 20 caracteres del cuerpo impreso. Se debe verificar antes de imprimir que se cuente con nivel de tinta y cantidad de hojas suficientes, de lo contrario, no se imprimirá nada.
+
+    * Modelá la clase correspondiente.
+*/
 package g01.e12;
 
 /**

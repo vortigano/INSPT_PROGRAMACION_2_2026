@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>30</y>
+      <w>340</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>MaquinaDeCafe
+--
+- marca: String
+- encendida: boolean
+--
++ MaquinaDeCafe(String)
+- puedeServirCafe(): void
++ servirCafe(TipoDeCafe): void
++ calentarAgua(): void
++ mantenimiento(): void
++ pulsarBotonDeEncendidoApagado(): void
++ cargarLecheYTextura(int, Textura): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>440</y>
+      <w>330</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>ModuloAgua
+--
+- temperatura: double
+- enMantenimiento: boolean
+_+ TEMP_INICIAL: double=20_
+_+ TEMP_MAXIMA_INSUFICIENTE: double=70_
+--
++ requiereMantenimiento(): boolean
++ calentarAgua(): void
++ matenimiento(): void
++ puedeServirCafe(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>20</y>
+      <w>370</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>ModuloLeche
+--
+- nivelLeche: int
+_+ NIVEL_LECHE_MAX:int=5_
+_+ NIVEL_LECHE_MIN:int=0_
+--
++ puedeServirCafe(TipoDeCafe): void
+- consumir(int): void
++ servirCafe(TipoDeCafe): void
++ cargarLecheYtextura(int, Textura): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>210</y>
+      <w>100</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- modAgua</panel_attributes>
+    <additional_attributes>10.0;230.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>100</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- modLeche</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>650</x>
+      <y>310</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+Textura
+--
++ ESPUMOSA
++ NORMAL
++ LIQUIDA
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>200</y>
+      <w>80</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- textura</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>390</y>
+      <w>250</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+TipoDeCafe
+--
++ EXPRESO (0,null)
++ LATTE (2,Textura.ESPUMOSA)
++ LAGRIMA (3,Textura.LIQUIDA)
+- nivelLeche: int
+--
+- TipoDeCafe(int,Textura)
++ getNivelLeche(): int
++ getTextura(): Textura</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>210</y>
+      <w>230</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>210.0;180.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>620</x>
+      <y>490</y>
+      <w>180</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+- textura</panel_attributes>
+    <additional_attributes>110.0;10.0;110.0;110.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>210</y>
+      <w>430</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>410.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

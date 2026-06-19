@@ -1,3 +1,12 @@
+/*
+    2) Una inmobiliaria, exclusiva de los barrios de Recoleta, Palermo y Belgrano, tiene a la venta propiedades, de las que se sabe su domicilio (String), su precio y su tipo (Depto, Casa o PH).
+    Basado en el enunciado descripto, realizá:
+
+    - a) El diagrama de clases que lo modelice, con sus relaciones, atributos y métodos.
+    - b) La implementación del método promedioDePrecio de la clase Inmobiliaria, el cual debe devolver cuánto cuestan en promedio todas las propiedades.
+    - c) La implementación del método propiedadesMasEconomicas de la clase Inmobiliaria, el cual debe devolver una lista de propiedades cuyo precio esté por debajo del promedio general.
+    - d) La implementación del método cantidadDePropiedadesSegunTipo de la clase Inmobiliaria, que recibe como parámetro un tipo de propiedad y debe devolver la cantidad de propiedades de tal tipo.
+*/
 package g02.e02;
 
 /**
